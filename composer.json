@@ -1,12 +1,6 @@
 {
     "name": "laravel-israel/demo-package",
     "description": "Laravel demo package",
-    "require": {
-        "php": ">=7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~6.0"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -14,5 +8,30 @@
             "email": "yakidehan@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^6.2@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelIsrael\\BitcoinRate\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "LaravelIsrael\\BitcoinRate\\BitcoinRateServiceProvider"
+            ],
+            "aliases": {
+                "BitcoinRate": "LaravelIsrael\\BitcoinRate\\Facades\\BitcoinRate"
+            }
+        }
+    },
     "minimum-stability": "dev"
 }
