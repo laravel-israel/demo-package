@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelIsrael\BitcoinRate;
+namespace LaravelIsrael\BitcoinRate\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
