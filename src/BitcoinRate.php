@@ -15,7 +15,7 @@ class BitcoinRate
     protected $url = 'https://blockchain.info/ticker';
 
     /**
-     * Suspend given amount.
+     * Get rates.
      *
      * @param int    $amount
      * @param string $currency
@@ -24,26 +24,20 @@ class BitcoinRate
      *
      * @return mixed
      */
-    public function get($currency = null)
+    public function rates($currency = null)
     {
         $client = new GuzzleHttp\Client();
 
         $response = $client->request('GET', $this->url);
 
-        // if ($currency) {
-        //     return $this->currency($response->getBody(), $currency);
-        // }
-
         return $response->getBody();
     }
 
     /**
-     * Suspend given amount.
+     * Convert from given currency.
      *
-     * @param int    $amount
+     * @param int    $value
      * @param string $currency
-     * @param string $payments
-     * @param string $check
      *
      * @return mixed
      */
@@ -54,26 +48,5 @@ class BitcoinRate
         $response = $client->request('GET', 'https://blockchain.info/tobtc?currency='.$currency.'&value='.$value);
 
         return $response->getBody();
-    }
-
-    /**
-     * Response.
-     *
-     * @param string $response
-     * @param string $currency
-     *
-     * @return mixed
-     */
-    public function currency($response, $currency)
-    {
-        switch ($currency) {
-            case 'USD':
-                return $response['USD'];
-            default:
-                throw new InvalidArgumentException("Unsupported [{$currency}] currency.");
-                break;
-        }
-
-        return $data;
     }
 }
