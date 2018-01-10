@@ -3,7 +3,6 @@
 namespace LaravelIsrael\BitcoinRate;
 
 use GuzzleHttp;
-use InvalidArgumentException;
 
 class BitcoinRate
 {
@@ -17,14 +16,9 @@ class BitcoinRate
     /**
      * Get rates.
      *
-     * @param int    $amount
-     * @param string $currency
-     * @param string $payments
-     * @param string $check
-     *
      * @return mixed
      */
-    public function rates($currency = null)
+    public function rates()
     {
         $client = new GuzzleHttp\Client();
 
