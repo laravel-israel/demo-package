@@ -24,7 +24,7 @@ class BitcoinRate
 
         $response = $client->request('GET', $this->url);
 
-        return $response->getBody();
+        return $response;
     }
 
     /**
@@ -41,6 +41,6 @@ class BitcoinRate
 
         $response = $client->request('GET', 'https://blockchain.info/tobtc?currency='.$currency.'&value='.$value);
 
-        return $response->getBody();
+        return $response;
     }
 }
